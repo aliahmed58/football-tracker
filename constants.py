@@ -44,7 +44,6 @@ MARKER_MARGIN = 10
 # distance in pixels from the player's bounding box where we consider the ball is in his possession
 PLAYER_IN_POSSESSION_PROXIMITY = 30
 
-# settings
 SOURCE_VIDEO_PATH = f"./clips/belgium_japan.mp4"
 TARGET_VIDEO_PATH = f"./out/8fd33_4.mp4"
 
