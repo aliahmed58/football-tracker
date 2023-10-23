@@ -7,9 +7,9 @@ from constants import *
 from ByteTrack.yolox.tracker.byte_tracker import BYTETracker
 from tqdm.notebook import tqdm
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', WEIGHTS_PATH, device=0)
 
 def detect_and_track(src_vid_path):
+    model = torch.hub.load('ultralytics/yolov5', 'custom', WEIGHTS_PATH, device=0, force_reload=True)
     print(src_vid_path)
     # initiate video writer
     video_config = VideoConfig(
@@ -21,7 +21,7 @@ def detect_and_track(src_vid_path):
         video_config=video_config)
 
     # get fresh video frame generator
-    frame_iterator = iter(generate_frames(video_file=src_vid_path))
+    frame_iterator = iter(generate_frames(video_file=SOURCE_VIDEO_PATH))
 
     # initiate annotators
     base_annotator = BaseAnnotator(

@@ -36,7 +36,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 from models import build_model
 from util.tool import load_model
-from main import get_args_parser
+from detect import get_args_parser
 from torch.nn.functional import interpolate
 from typing import List
 from util.evaluation import Evaluator

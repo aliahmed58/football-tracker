@@ -5,7 +5,6 @@ import os
 from celery import Celery, Task, shared_task
 from celery.result import AsyncResult
 from make_celery import detect, flask_app
-from detect import detect_and_track
 
 
 uploaded = False
@@ -42,8 +41,7 @@ def upload_video():
             file.save(os.path.join(flask_app.config['uploads'], filename))
             print('upload_video filename: ' + filename)
             uploaded  = True
-            result = detect.delay('~/Desktop/football_tracker/static/belgium_japan.mp4')
-            result.wait()
+            result = detect.delay(f'./static/{filename}')
             return {'result_id': result.id}
     else:
         return flask.render_template('index.html')

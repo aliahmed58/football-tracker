@@ -2,6 +2,7 @@ from flask import Flask
 import flask
 from celery import Celery, Task
 from detect import detect_and_track
+import time
 
 def celery_init_app(app: Flask) -> Celery:
     class FlaskTask(Task):
